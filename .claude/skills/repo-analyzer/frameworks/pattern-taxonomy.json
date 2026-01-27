@@ -1,0 +1,173 @@
+{
+  "version": "1.0.0",
+  "description": "Taxonomy for classifying Claude Code infrastructure patterns",
+
+  "workflow_types": {
+    "sequential": {
+      "description": "Steps execute in order, each depending on previous",
+      "indicators": ["Step 1", "Step 2", "then", "after", "next"],
+      "example": "Lint → Test → Build → Deploy"
+    },
+    "parallel": {
+      "description": "Multiple operations run simultaneously",
+      "indicators": ["in parallel", "simultaneously", "concurrent", "multiple agents"],
+      "example": "Research agent + Code agent + Review agent"
+    },
+    "conditional": {
+      "description": "Different paths based on input or state",
+      "indicators": ["if", "when", "depending on", "based on", "branch"],
+      "example": "If TypeScript → use tsc, else → skip type check"
+    },
+    "feedback_loop": {
+      "description": "Iterate until quality criteria met",
+      "indicators": ["until", "validate", "re-run", "fix and retry", "loop"],
+      "example": "Generate → Review → Fix → Re-review until approved"
+    },
+    "hierarchical": {
+      "description": "Parent orchestrator delegates to child workers",
+      "indicators": ["orchestrator", "coordinator", "delegates", "spawns"],
+      "example": "Plan agent → spawns → Implementation agents"
+    }
+  },
+
+  "composition_patterns": {
+    "solo": {
+      "description": "Single skill or agent handles entire task",
+      "when_to_use": "Simple, focused tasks",
+      "example": "code-review skill reviews a file"
+    },
+    "pipeline": {
+      "description": "Output of one becomes input of next",
+      "when_to_use": "Transformation chains",
+      "example": "Parse → Transform → Validate → Output"
+    },
+    "collaborative": {
+      "description": "Multiple specialists contribute different aspects",
+      "when_to_use": "Complex tasks requiring diverse expertise",
+      "example": "Architect proposes → Developer implements → Reviewer validates"
+    },
+    "competitive": {
+      "description": "Multiple approaches compared, best selected",
+      "when_to_use": "Uncertain best approach, want options",
+      "example": "3 design proposals → human selects → implement selected"
+    },
+    "supervisory": {
+      "description": "One agent monitors/validates others' work",
+      "when_to_use": "Quality-critical workflows",
+      "example": "Workers produce → Supervisor reviews all output"
+    }
+  },
+
+  "automation_levels": {
+    "manual": {
+      "description": "Human invokes explicitly each time",
+      "trigger": "Slash command or direct request",
+      "example": "/code-review"
+    },
+    "semi_automatic": {
+      "description": "Auto-triggers but may ask for confirmation",
+      "trigger": "Pattern match in conversation",
+      "example": "Skill auto-loads when discussing reviews"
+    },
+    "fully_automatic": {
+      "description": "Runs without human intervention",
+      "trigger": "Hook on event",
+      "example": "PostToolUse hook formats code after every write"
+    }
+  },
+
+  "orchestration_patterns": {
+    "meta_first": {
+      "description": "Share context and design before execution",
+      "characteristics": ["Context sharing", "Infrastructure design", "Alignment check"],
+      "example": "User shares goals → Claude proposes tools → Build → Execute"
+    },
+    "progressive_disclosure": {
+      "description": "Load information only when needed",
+      "characteristics": ["Descriptions always", "Full content on trigger", "References on demand"],
+      "example": "Skill descriptions in context, body loads only when triggered"
+    },
+    "context_isolation": {
+      "description": "Isolate work to protect main context",
+      "characteristics": ["Subagent execution", "Summary return", "Context fork"],
+      "example": "Heavy research in subagent, only findings return"
+    },
+    "state_persistence": {
+      "description": "Use filesystem for cross-session memory",
+      "characteristics": ["File-based state", "Git as audit trail", "JSON checkpoints"],
+      "example": "Save progress to state.json, resume on next session"
+    }
+  },
+
+  "learning_patterns": {
+    "append_only_log": {
+      "description": "Timestamped learnings added to CLAUDE.md",
+      "format": "- YYYY-MM-DD: Learning description",
+      "example": "## Learned Rules\n- 2026-01-15: Always validate user input"
+    },
+    "confidence_evolution": {
+      "description": "New behaviors start tentative, strengthen with validation",
+      "levels": ["0.3 tentative", "0.5 contextual", "0.7 auto-apply", "0.9 core"],
+      "example": "Instinct starts at 0.3, rises to 0.9 after repeated success"
+    },
+    "pattern_crystallization": {
+      "description": "Repeated patterns become formalized skills",
+      "flow": "Observation → Pattern → Instinct → Skill",
+      "example": "Notice repeated SQL formatting → create sql-formatter skill"
+    },
+    "history_extraction": {
+      "description": "Analyze git history to bootstrap skills",
+      "sources": ["Commit messages", "File change patterns", "Co-change frequency"],
+      "example": "/skill-create analyzes commits to generate domain skills"
+    }
+  },
+
+  "naming_patterns": {
+    "namespace_prefix": {
+      "description": "Prefix commands/skills to avoid collisions",
+      "format": "namespace:name",
+      "example": "workflows:plan, workflows:review"
+    },
+    "role_based": {
+      "description": "Name agents by their role/specialization",
+      "format": "role-descriptor",
+      "example": "code-reviewer, security-auditor, test-writer"
+    },
+    "action_based": {
+      "description": "Name skills by what they do",
+      "format": "action-object",
+      "example": "review-code, format-sql, generate-tests"
+    }
+  },
+
+  "quality_markers": {
+    "sophisticated": {
+      "description": "Patterns indicating mature Claude Code usage",
+      "markers": [
+        "Multi-phase workflows",
+        "Context isolation via subagents",
+        "Progressive disclosure",
+        "Learning systems",
+        "Namespace organization"
+      ]
+    },
+    "basic": {
+      "description": "Functional but not advanced patterns",
+      "markers": [
+        "Single skills without composition",
+        "Manual-only invocation",
+        "No learning capture",
+        "Flat organization"
+      ]
+    },
+    "problematic": {
+      "description": "Patterns that may cause issues",
+      "markers": [
+        "Overly broad agents",
+        "Context-bloating CLAUDE.md",
+        "No tool restrictions",
+        "Conflicting rules"
+      ]
+    }
+  }
+}
