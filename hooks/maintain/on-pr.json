@@ -1,0 +1,9 @@
+{
+  "name": "on-pr",
+  "description": "Format check and link check on PR",
+  "status": "stub",
+  "event": "PreToolUse",
+  "matcher": "git.*commit|gh.*pr",
+  "action": "run format checks",
+  "notes": "Implementation coming soon"
+}

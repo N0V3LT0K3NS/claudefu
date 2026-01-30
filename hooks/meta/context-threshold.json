@@ -1,0 +1,9 @@
+{
+  "name": "context-threshold",
+  "description": "Trigger context-health at 70% capacity",
+  "status": "stub",
+  "event": "periodic",
+  "threshold": "70%",
+  "action": "trigger context-health skill",
+  "notes": "Implementation coming soon"
+}

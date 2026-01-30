@@ -1,0 +1,10 @@
+{
+  "name": "on-error",
+  "description": "Consider failure-autopsy on errors",
+  "status": "stub",
+  "event": "PostToolUse",
+  "matcher": ".*",
+  "condition": "error occurred",
+  "action": "suggest failure-autopsy skill",
+  "notes": "Implementation coming soon"
+}

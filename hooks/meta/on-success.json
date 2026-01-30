@@ -1,0 +1,10 @@
+{
+  "name": "on-success",
+  "description": "Consider pattern-harvest on success",
+  "status": "stub",
+  "event": "PostToolUse",
+  "matcher": ".*",
+  "condition": "significant success",
+  "action": "suggest pattern-harvest skill",
+  "notes": "Implementation coming soon"
+}

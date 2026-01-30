@@ -1,0 +1,183 @@
+{
+  "version": "1.0.0",
+  "description": "Maps repository analysis findings to GROK_ENRICHED.md sections",
+
+  "mappings": {
+    "part_0_meta_pattern": {
+      "section_title": "Part 0: The Meta-Pattern",
+      "what_belongs_here": [
+        "Examples of meta-orchestration in practice",
+        "Context-sharing patterns before execution",
+        "Infrastructure-first approaches",
+        "Patterns that show 'build tools, then use them'"
+      ],
+      "finding_types": [
+        "Multi-phase workflows that design before executing",
+        "Skills that create other skills",
+        "Agents that propose infrastructure",
+        "CLAUDE.md patterns that teach meta-awareness"
+      ],
+      "integration_format": "Add as examples under 'The Meta-Conversation in Action' or as new subsections"
+    },
+
+    "part_1_architecture": {
+      "section_title": "Part 1: The Architecture You Inhabit",
+      "what_belongs_here": [
+        "Novel uses of the core loop",
+        "Extension point innovations",
+        "Context budget management strategies"
+      ],
+      "finding_types": [
+        "Unusual tool combinations",
+        "Context management patterns",
+        "Novel loading strategies"
+      ],
+      "integration_format": "Add to relevant subsections (Core Loop, Extension Points, Context Budget)"
+    },
+
+    "part_2_mechanisms": {
+      "section_title": "Part 2: The Six Mechanisms in Depth",
+      "what_belongs_here": [
+        "Advanced usage patterns for each mechanism",
+        "Novel configurations",
+        "Mechanism combinations"
+      ],
+      "finding_types": {
+        "claude_md": "Novel CLAUDE.md organization patterns",
+        "skills": "Advanced skill patterns (progressive disclosure, workflows)",
+        "subagents": "Agent architecture patterns (parallel, collaborative)",
+        "mcp": "MCP configuration patterns",
+        "hooks": "Hook patterns (validation, automation)",
+        "plugins": "Plugin bundling strategies"
+      },
+      "integration_format": "Add to respective mechanism section (2.1-2.6)"
+    },
+
+    "part_3_decision_matrix": {
+      "section_title": "Part 3: The Decision Matrix",
+      "what_belongs_here": [
+        "New 'when to use what' guidance",
+        "Feature comparisons",
+        "Decision heuristics"
+      ],
+      "finding_types": [
+        "Novel mechanism selections",
+        "Trade-off examples",
+        "Selection criteria"
+      ],
+      "integration_format": "Add rows to decision tables or new comparison sections"
+    },
+
+    "part_5_generative": {
+      "section_title": "Part 5: Generative Capabilities",
+      "what_belongs_here": [
+        "Examples of building infrastructure",
+        "Composition patterns",
+        "Emergent capabilities"
+      ],
+      "finding_types": [
+        "Creative mechanism combinations",
+        "Novel workflow compositions",
+        "Self-building patterns",
+        "Compounding effect examples"
+      ],
+      "integration_format": "Add to 'Emergent Patterns from Composition' or 'What You Can Create'"
+    },
+
+    "part_6_operational": {
+      "section_title": "Part 6: Operational Principles",
+      "what_belongs_here": [
+        "New operational principles",
+        "Lessons learned",
+        "Best practices from production use"
+      ],
+      "finding_types": [
+        "Hard-won learnings",
+        "Anti-pattern discoveries",
+        "Quality multipliers",
+        "Context hygiene strategies"
+      ],
+      "integration_format": "Add as new numbered principles or examples under existing ones"
+    },
+
+    "part_7_for_human": {
+      "section_title": "Part 7: For the Human",
+      "what_belongs_here": [
+        "Human workflow patterns",
+        "Collaboration strategies",
+        "Investment mindset examples"
+      ],
+      "finding_types": [
+        "Novel human-Claude interaction patterns",
+        "Prompt patterns that work",
+        "Signs of mature collaboration"
+      ],
+      "integration_format": "Add to 'How to Engage the Meta-Pattern' or 'Signs You Should Go Meta'"
+    },
+
+    "part_9_bootstrapping": {
+      "section_title": "Part 9: Adaptive Bootstrapping",
+      "what_belongs_here": [
+        "Template system references",
+        "Advanced patterns from mature repos",
+        "Domain adaptation examples"
+      ],
+      "finding_types": [
+        "Rules patterns (distinct from CLAUDE.md)",
+        "Continuous learning systems",
+        "Iterative retrieval patterns",
+        "Skill-creation methodologies",
+        "Domain-specific adaptations"
+      ],
+      "integration_format": "Add as new subsections under 'Advanced Patterns Worth Understanding' or 'Using This As An Adaptive Template'"
+    },
+
+    "part_10_resources": {
+      "section_title": "Part 10: Curated Resources",
+      "what_belongs_here": [
+        "Repository references",
+        "Learning resources",
+        "Tool recommendations"
+      ],
+      "finding_types": [
+        "Repos worth studying",
+        "Documentation sources",
+        "Community resources",
+        "Extension tools"
+      ],
+      "integration_format": "Add to appropriate category table (Template Systems, Official Resources, Learning Resources)"
+    }
+  },
+
+  "classification_rules": {
+    "priority_order": [
+      "part_9_bootstrapping",
+      "part_5_generative",
+      "part_2_mechanisms",
+      "part_6_operational",
+      "part_0_meta_pattern"
+    ],
+    "notes": "When a finding could go multiple places, prefer: Part 9 for template/bootstrap patterns, Part 5 for composition patterns, Part 2 for mechanism-specific patterns"
+  },
+
+  "delta_format": {
+    "structure": {
+      "section": "GROK section identifier",
+      "subsection": "Specific subsection if applicable",
+      "finding": "What was found",
+      "integration_type": "new_subsection | add_to_table | add_example | new_principle",
+      "suggested_content": "Draft prose or table row",
+      "source_repo": "Repository this came from",
+      "source_file": "Specific file reference"
+    },
+    "example": {
+      "section": "part_9_bootstrapping",
+      "subsection": "Advanced Patterns Worth Understanding",
+      "finding": "Namespace prefixing pattern for commands",
+      "integration_type": "new_subsection",
+      "suggested_content": "#### Namespace Prefixing\n\nTo avoid command collisions across plugins...",
+      "source_repo": "compound-engineering-plugin",
+      "source_file": ".claude/commands/workflows:plan.md"
+    }
+  }
+}
